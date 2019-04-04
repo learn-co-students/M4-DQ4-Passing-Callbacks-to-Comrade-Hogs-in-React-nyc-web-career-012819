@@ -3,7 +3,6 @@ import wreee from '../assets/wreee.mp3';
 import exclaim from '../assets/exclaim.mp3';
 import exclamation from "../assets/exclamation.png"
 
-
 export default class GalaxySNote7 extends React.Component {
   constructor(props) {
     super(props)
@@ -19,9 +18,14 @@ export default class GalaxySNote7 extends React.Component {
   }
 
   throwAFit = () => {
+    this.setState({ panicked: true });
+    this.props.alterEnvironment('inhospitable');
+    setTimeout(this.relax, 2000)
   }
 
   relax = () => {
+    this.setState({ panicked: false });
+    this.props.alterEnvironment('docile');
   }
 
   exclaim = () => {
@@ -35,7 +39,11 @@ export default class GalaxySNote7 extends React.Component {
   render() {
     return(
       <div id="galaxy-s-note" onClick={this.exclaim}>
-        {(this.state.panicked) ? this.panic() : null}
+        {
+          (this.state.panicked) ? 
+            this.panic() : 
+            null
+        }
       </div>
     )
   }

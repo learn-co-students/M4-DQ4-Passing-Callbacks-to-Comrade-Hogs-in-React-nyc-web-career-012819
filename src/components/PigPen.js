@@ -3,7 +3,6 @@ import Pig from "./Pig.js"
 import GalaxySNote7 from "./GalaxySNote7.js"
 import exclaim from '../assets/exclaim.mp3';
 
-
 const pigs = [
   "Sobriety",
   "Trouble",
@@ -43,7 +42,7 @@ export default class PigPen extends React.Component {
     return(
       <div id="pig-pen">
         {sheeple}
-        <GalaxySNote7 environment={null} alterEnvironment={null} />
+        <GalaxySNote7 environment={null} alterEnvironment={this.alterEnvironment} />
       </div>
     )
   }
